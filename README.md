@@ -108,7 +108,7 @@ Os seguintes itens serão avaliados como **diferenciais** na avaliação final:
 - Implementação de **upload e download de imagens** para as tarefas.
 - **Deploy completo da aplicação** (frontend e backend) em alguma ferramenta gratuita de hospedagem.
 
-  - Sugestão: [Render](https://render.com)
+  - Sugestão: [Render](https://render.com) (use [Fastcron](https://app.fastcron.com) a cada 15 minutos para sua aplicação não cair)
 
 ## Critérios de Avaliação
 
@@ -119,12 +119,9 @@ O projeto será avaliado com base nos seguintes critérios:
 3. **Robustez da implementação**, incluindo validações e tratamento de erros/exceções
 4. **Fidelidade ao layout** e atenção aos detalhes
 
-## Prazo e Entrevista Final
+## Aviso Importante
 
-O prazo para a conclusão do desafio é de **2 semanas** a partir da data de recebimento.
-Após o envio, o projeto será analisado pela equipe técnica, e a **entrevista final será baseada diretamente nesta atividade**, explorando suas decisões técnicas, arquitetura e raciocínio de desenvolvimento.
+Utilize ferramentas de LLM com extrema cautela.
+A entrevista final dependerá diretamente desta atividade, e todas as decisões técnicas e justificativas de desenvolvimento serão analisadas em profundidade.
 
-## Dicas
-
-- Estruture bem seu código e documentação.
-- Demonstre sua capacidade de pensar como um **desenvolvedor de produto**, e não apenas como um programador.
+O uso inadequado de LLMs poderá comprometer sua avaliação.
