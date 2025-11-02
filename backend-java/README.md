@@ -8,7 +8,7 @@ O projeto foi pré-configurado para facilitar o desenvolvimento, incluindo integ
 
 Antes de iniciar, garanta que você tenha os seguintes softwares instalados:
 
-- [**Java 21**](https://github.com/shyiko/jabba) ou superior
+- [**Java 21**](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html) ou superior
 - [**Maven**](https://maven.apache.org/install.html)
 - [**Docker**](https://www.docker.com/)
 
