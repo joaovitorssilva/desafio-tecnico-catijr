@@ -1,0 +1,38 @@
+services:
+  backend:
+    container_name: backend
+    image: backend
+    build:
+      context: ./backend-node
+      dockerfile: dockerfile.backend
+    env_file:
+    - ./backend-node/.env
+    ports:
+      - "4000:4000"
+    depends_on:
+      db:
+        condition : service_healthy
+    environment:
+      DATABASE_URL: "postgresql://admin:password123@catidb:5433/minha_api"
+      NODE_ENV: production
+
+  db:
+    container_name: catidb
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: minha_api
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db_data: {}

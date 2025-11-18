@@ -1,10 +1,13 @@
-function App() {
+import Board from "./components/Board";
+import Navbar from './components/Navbar';
 
+function App() {
   return (
-    <div className="min-h-screen bg-bg font-sans">
-      <p className="text-white">Boa sorte no projeto! <br /> - Menoni ❤️</p>
-    </div>
-  )
+    <>
+      <Navbar />
+      <Board/>
+    </>
+  );
 }
 
-export default App
+export default App;

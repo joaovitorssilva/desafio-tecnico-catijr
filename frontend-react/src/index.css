@@ -15,6 +15,8 @@
   --color-highPrioText: #702D08;
   --color-veryHighPrio: #F27F77;
   --color-veryHighPrioText: #5F0F0B;
+  --color-options-button-hover: #4E4E4E;
+  --color-options-button-pressed: #343333
   
   --font-family-poppins: 'Poppins', system-ui, sans-serif;
 }
