@@ -12,12 +12,12 @@ enum Priority {
   MEDIUM
   HIGH
   VERY_HIGH
-} 
+}
 
 model List {
-  id     Int     @id @default(autoincrement())
-  name   String  @unique
-  tasks  Task[]
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  tasks Task[]
 }
 
 model Task {
@@ -27,11 +27,11 @@ model Task {
   priority           Priority
   expectedFinishDate DateTime?
   finishDate         DateTime?
-  
-  //relacionamento com list
-  listId             Int
-  list               List      @relation(fields: [listId], references: [id], onDelete: Cascade)
 
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
+  //relacionamento com list
+  listId Int
+  list   List @relation(fields: [listId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

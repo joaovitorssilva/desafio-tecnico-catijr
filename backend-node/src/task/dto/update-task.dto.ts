@@ -5,13 +5,7 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
-
-enum Priority {
-  LOW = 'LOW',
-  MEDIUM = 'MEDIUM',
-  HIGH = 'HIGH',
-  VERY_HIGH = 'VERY_HIGH',
-}
+import { Priority } from './priority.enum';
 
 export class UpdateTaskDto {
   @IsOptional()

@@ -12,6 +12,12 @@ export class TaskController {
   create(@Body() createTaskDto: CreateTaskDto) {
     return this.taskService.create(createTaskDto);
   }
+
+  // [GET] /tasks — retorna todas as tarefas
+  @Get()
+  findAll() {
+    return this.taskService.findAll();
+  }
   
   // [GET] /tasks/:id — retorna a tarefa pelo ID
   @Get(':id')

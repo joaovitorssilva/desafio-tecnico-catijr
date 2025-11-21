@@ -1,5 +1,3 @@
-// src/task/task.service.ts
-
 import {
   BadRequestException,
   Injectable,
@@ -8,6 +6,7 @@ import {
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class TaskService {
@@ -47,12 +46,16 @@ export class TaskService {
     return this.prisma.task.create({
       data: {
         ...createTaskDto,
-        priority: createTaskDto.priority,
         expectedFinishDate: createTaskDto.expectedFinishDate
           ? new Date(createTaskDto.expectedFinishDate)
           : null,
       },
     });
+  }
+
+  // [GET] /tasks — retorna todas as tarefas
+  async findAll() {
+    return this.prisma.task.findMany();
   }
 
   // [GET] /tasks/:id — retorna a tarefa pelo ID
@@ -70,18 +73,17 @@ export class TaskService {
   async update(id: number, updateTaskDto: UpdateTaskDto) {
     await this.findOne(id); // Valida se a tarefa existe
     await this.validateTaskData(updateTaskDto); // Valida data e novo listId
-
-    const dataToUpdate: any = {
+  
+    const dataToUpdate: Prisma.TaskUpdateInput = {
       ...updateTaskDto,
-      priority: updateTaskDto.priority,
-      expectedFinishDate: updateTaskDto.expectedFinishDate
-        ? new Date(updateTaskDto.expectedFinishDate)
-        : undefined,
-      finishDate: updateTaskDto.finishDate
-        ? new Date(updateTaskDto.finishDate)
-        : undefined,
+      ...(updateTaskDto.expectedFinishDate && {
+        expectedFinishDate: new Date(updateTaskDto.expectedFinishDate),
+      }),
+      ...(updateTaskDto.finishDate && {
+        finishDate: new Date(updateTaskDto.finishDate),
+      }),
     };
-
+  
     return this.prisma.task.update({
       where: { id },
       data: dataToUpdate,

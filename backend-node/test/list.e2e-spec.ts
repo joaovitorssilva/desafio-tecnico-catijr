@@ -123,6 +123,11 @@ describe('ListController (e2e)', () => {
         .expect(200);
 
       expect(response.body.name).toBe('Updated Name');
+
+      const updatedList = await prisma.list.findUnique({
+        where: { id: list.id },
+      });
+      expect(updatedList.name).toBe('Updated Name');
     });
   });
 
@@ -134,7 +139,7 @@ describe('ListController (e2e)', () => {
 
       await request(app.getHttpServer())
         .delete(`/lists/${list.id}`)
-        .expect(200);
+        .expect(204);
 
       const deletedList = await prisma.list.findUnique({
         where: { id: list.id },
